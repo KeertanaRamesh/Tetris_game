@@ -1,0 +1,12 @@
+name: Test
+on:
+  pull_request:
+    paths:
+      - '**.dart'
+      - '.github/workflows/**.yml'
+
+jobs:
+  test:
+    uses: ./.github/workflows/flutter.yml
+    with:
+      commands: "[ 'flutter format --set-exit-if-changed .', 'flutter analyze', 'flutter test' ]"
